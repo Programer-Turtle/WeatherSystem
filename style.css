@@ -1,0 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Arimo);
+h1
+{
+    font-family: "Arimo";
+    font-size: 40px;
+    color:rgb(73, 73, 73);
+    text-align: center;
+}
