@@ -6,3 +6,19 @@ h1
     color:rgb(73, 73, 73);
     text-align: center;
 }
+
+.left
+{
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    top: 0%;
+    position: fixed;
+    left: 0%;
+    display: flex;
+    justify-content: left;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color:grey;
+}
