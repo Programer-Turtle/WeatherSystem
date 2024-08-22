@@ -7,6 +7,13 @@ h1
     text-align: center;
 }
 
+p
+{
+    font-family: "Arimo";
+    font-size: 20px;
+    color:rgb(73, 73, 73);
+}
+
 .left
 {
     background-color: white;
