@@ -3,6 +3,10 @@ async function GetForecast(CountyCode, Lat, Long) {
     let ShortForecast = await fetch(`https://api.weather.gov/zones/forecast/${CountyCode}/forecast`, {
         method: 'Get'
     })
+    if (!ShortForecast.ok){
+        console.log("Connecting to NWS API failed. Reloading")
+        location.reload()
+    }
     let data = await ShortForecast.json()
     data = data.properties.periods
 
