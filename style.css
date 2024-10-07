@@ -14,6 +14,24 @@ p
     color:rgb(73, 73, 73);
 }
 
+
+a.NavButton{
+    text-decoration: none;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: "Arimo";
+    color:rgb(73, 73, 73);
+    padding: 0;
+    font-size: 30px;
+    transition: 1s;
+}
+
+a.NavButton:hover{
+    color:rgb(102, 100, 100);
+    scale: 110%;
+    transform: translateY(-5px);
+}
+
 .left
 {
     background-color: white;
@@ -24,8 +42,77 @@ p
     position: fixed;
     left: 0%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: left;
+    align-content: center;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color:grey;
+}
+
+.AlertsList{
+    margin-left: 30px; 
+    margin-right: 30px; 
+    border-color: black; 
+    border-style: solid;
+    border-bottom-style: none;
+}
+
+.AlertBox{
+    border-bottom-style: solid;
+    border-bottom-color:black;
+}
+
+.AlertBox p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+option{
+    font-size: 30px;
+    font-family: "Arimo";
+}
+
+select{
+    font-size: 30px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.menu1
+{
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: end;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.menu2
+{
+    margin: 0;
+    margin-left: 10px;
+    padding: 0;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: start;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+button{
+    font-family: "Arimo";
+    font-size: 40px;
+    color:rgb(73, 73, 73);
+    padding: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 5px;
 }

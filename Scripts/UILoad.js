@@ -2,7 +2,7 @@ async function LoadNavBar()
 {
     try 
     {
-        document.getElementById("NavBar").innerHTML = `<a style="padding: 0; margin: 0; margin-top: 5px; margin-left: 10px; margin-right: 40px;"href="index.html"><img style="padding: 0; margin: 0;" width="80px" src="Images/Logo.PNG" alt="Logo"></a><a></a>`
+        document.getElementById("NavBar").innerHTML = `<a style="padding: 0; margin: 0; margin-top: 5px; margin-left: 10px; margin-right: 40px;"href="index.html"><img style="padding: 0; margin: 0;" width="80px" src="Images/Logo.PNG" alt="Logo"></a><a class="NavButton" href="Search.html">Search</a>`
         return true    
     } catch (error) {
         console.error(error)
