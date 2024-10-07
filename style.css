@@ -116,3 +116,19 @@ button{
     background-color: white;
     border-radius: 5px;
 }
+
+footer{
+    background-color: white;
+    margin: 0;
+    margin-top: 40px;
+    padding: 0;
+    width: 100%;
+    bottom: 0%;
+    left: 0%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color:grey;
+}
