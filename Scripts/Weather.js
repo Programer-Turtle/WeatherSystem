@@ -59,6 +59,7 @@ async function MainForecast() {
         console.log(ReflectivityURL)
         let VelocityURL = CountyData.VelocityRadar
         console.log("Valid Page")
+        document.getElementById("CountyHeader").innerText = `${County} County Forecast`
         try{
             dictionary = await GetForecast(CountyCode, ForecastCode, CountyLat, CountyLong)
         }

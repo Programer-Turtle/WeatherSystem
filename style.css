@@ -1,4 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Arimo);
+body{
+    padding: 0;
+    margin: 0;
+}
+
 h1
 {
     font-family: "Arimo";
