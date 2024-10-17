@@ -73,6 +73,18 @@ a.NavButton:hover{
     margin-bottom: 10px;
 }
 
+.StandaloneAlertBox{
+    margin-left: 30px; 
+    margin-right: 30px; 
+    border-style: solid;
+    border-color:black;
+}
+
+.StandaloneAlertBox p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 option{
     font-size: 30px;
     font-family: "Arimo";
