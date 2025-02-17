@@ -11,7 +11,20 @@ function containsUnallowedSymbol(str, allowedSymbols) {
 async function Signup(){
     let Username = document.getElementById("UsernameInput").value
     let Password = document.getElementById("PasswordInput").value
+    let passwordConfirm
     Username = Username.toLowerCase()
+
+    let URL = window.location.href.split('/')
+    Page = URL.pop()
+
+    if(Page == "signup.html"){
+        passwordConfirm = document.getElementById("PasswordInput2").value
+    }
+    
+    if(Password != passwordConfirm){
+        ErrorText.innerText = "Passwords don't match."
+        return
+    }
 
     if (containsUnallowedSymbol(Username, "-_")) {
         ErrorText.innerText = "Usernames can only contain letters, numbers, dashes, and underscores."
@@ -102,3 +115,61 @@ async function autosignin(Username, Password) {
         window.location = "index.html"
     }
 }
+
+async function VerifyServer(Username, Token) {
+    if(Username == null){
+        return false
+    }
+    if (containsUnallowedSymbol(Username, "-_")) {
+        ErrorText.innerText = "Usernames can only contain letters, numbers, dashes, and underscores."
+        return
+    }
+
+    let Response = await fetch('http://localhost:3000/verify', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: Username,
+            token: Token
+        })
+    })
+    if(!Response.ok){
+        errorData = await Response.json()
+        console.log(errorData["error"])
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+async function Verify() {
+    let AccountButton = document.getElementById("AccountButton")
+    let SigninButton = document.getElementById("SigninButton")
+    let SignupButton = document.getElementById("SignupButton")
+
+    let Username = localStorage.getItem("Username")
+    let Token = localStorage.getItem("Token")
+    let URL = window.location.href.split('/')
+    Page = URL.pop()
+    
+    if(await VerifyServer(Username, Token)){
+        if(Page == "signin.html"){
+            window.location = "index.html"
+        }
+        else{
+            SigninButton.style.display = "none"
+            SignupButton.style.display = "none"
+            AccountButton.style.display = "block"
+        }
+    }
+    else{
+        if(Page == "account.html"){
+            window.location = "signin.html"
+        }
+    }
+}
+
+Verify()
