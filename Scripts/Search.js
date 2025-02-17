@@ -5,7 +5,8 @@ function UpdateCounties(){
     let Counties = GetAllCounties(State)
 
     for (let CountyIndex = 0; CountyIndex<Counties.length; CountyIndex++){
-        CountyDropDownInnerHTML += `<option value="${Counties[CountyIndex]}">${Counties[CountyIndex]}</option>`
+        CleanName = Counties[CountyIndex].replace("_", " ")
+        CountyDropDownInnerHTML += `<option value="${Counties[CountyIndex]}">${CleanName}</option>`
     }
 
     CountyDropDown.innerHTML = CountyDropDownInnerHTML
@@ -17,7 +18,8 @@ function PutStateOption(){
     let StateDropDownInnerHTML = ``
     let States = GetAllStates()
     for (let StateIndex = 0; StateIndex<States.length; StateIndex++){
-        StateDropDownInnerHTML += `<option value="${States[StateIndex]}">${States[StateIndex]}</option>`
+        CleanName = States[StateIndex].replace("_", " ")
+        StateDropDownInnerHTML += `<option value="${States[StateIndex]}">${CleanName}</option>`
     }
 
     StateDropDown.innerHTML = StateDropDownInnerHTML

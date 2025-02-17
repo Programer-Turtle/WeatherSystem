@@ -18,6 +18,16 @@ Data = {
             'ReflectivityRadar':'https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJsb2NhbCIsImNlbnRlciI6Wy04Ni4yOCwzOS43MDddLCJsb2NhdGlvbiI6bnVsbCwiem9vbSI6OC40OTU2NDQ5MzIwNDQ0MzUsImZpbHRlciI6bnVsbCwibGF5ZXIiOiJzcl9icmVmIiwic3RhdGlvbiI6IktJTkQifSwiYW5pbWF0aW5nIjp0cnVlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6ZmFsc2UsImN3YSI6ZmFsc2UsInJmYyI6ZmFsc2UsInN0YXRlIjpmYWxzZSwibWVudSI6dHJ1ZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLjY5LCJsb2NhbCI6MSwibG9jYWxTdGF0aW9ucyI6MCwibmF0aW9uYWwiOjAuNn19',
             'VelocityRadar':'https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJsb2NhbCIsImNlbnRlciI6Wy04Ni4yOCwzOS43MDddLCJsb2NhdGlvbiI6bnVsbCwiem9vbSI6OC40OTU2NDQ5MzIwNDQ0MzUsImZpbHRlciI6bnVsbCwibGF5ZXIiOiJzcl9idmVsIiwic3RhdGlvbiI6IktJTkQifSwiYW5pbWF0aW5nIjp0cnVlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6ZmFsc2UsImN3YSI6ZmFsc2UsInJmYyI6ZmFsc2UsInN0YXRlIjpmYWxzZSwibWVudSI6dHJ1ZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLjY5LCJsb2NhbCI6MSwibG9jYWxTdGF0aW9ucyI6MCwibmF0aW9uYWwiOjAuNn19'
         }
+    },
+    'North_Carolina':{
+        'Perquimans':{
+            'CountyCode':'NCC143',
+            'ForecastCode':'NCZ032',
+            'Latitude':'36.189993623216886',
+            'Longitude':'-76.46863467474357',
+            'ReflectivityRadar':'https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJsb2NhbCIsImNlbnRlciI6Wy03Ny4wMDcsMzYuOTg0XSwibG9jYXRpb24iOm51bGwsInpvb20iOjguMTk4ODMzMzExODY0MTI2LCJmaWx0ZXIiOm51bGwsImxheWVyIjoic3JfYnJlZiIsInN0YXRpb24iOiJLQUtRIn0sImFuaW1hdGluZyI6ZmFsc2UsImJhc2UiOiJzYXRlbGxpdGUiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6ZmFsc2UsImN3YSI6ZmFsc2UsInJmYyI6ZmFsc2UsInN0YXRlIjpmYWxzZSwibWVudSI6dHJ1ZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLjgsImxvY2FsIjowLjYsImxvY2FsU3RhdGlvbnMiOjAuOCwibmF0aW9uYWwiOjAuNn19',
+            'VelocityRadar':'https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJsb2NhbCIsImNlbnRlciI6Wy03Ny4wMDcsMzYuOTg0XSwibG9jYXRpb24iOm51bGwsInpvb20iOjguMTk4ODMzMzExODY0MTI2LCJmaWx0ZXIiOm51bGwsImxheWVyIjoic3JfYnZlbCIsInN0YXRpb24iOiJLQUtRIn0sImFuaW1hdGluZyI6ZmFsc2UsImJhc2UiOiJzYXRlbGxpdGUiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6ZmFsc2UsImN3YSI6ZmFsc2UsInJmYyI6ZmFsc2UsInN0YXRlIjpmYWxzZSwibWVudSI6dHJ1ZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLjgsImxvY2FsIjowLjYsImxvY2FsU3RhdGlvbnMiOjAuOCwibmF0aW9uYWwiOjAuNn19'
+        }
     }
 }
 
