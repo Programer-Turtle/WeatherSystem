@@ -13,13 +13,35 @@
     </div>
     <h1 style="margin-top:120px">Account Settings</h1>
 
+    <div id="accountdelete" class="popup">
+        <div class="popupmenu">
+            <button onclick="HidePopUp('accountdelete')" style="border-radius: 360px; padding-left: 15px; padding-right: 15px; border-color: black; border-style: solid; margin-left: 5px;">X</button>
+            <h1>Current Password</h1>
+            <div class="center">
+                <input type="password">
+            </div>
+            <h1>New Password</h1>
+            <div class="center">
+                <input type="password">
+            </div>
+            <h1>Confirm New Password</h1>
+            <div class="center">
+                <input type="password">
+            </div>
+            <div class="center">
+                <button>Confirm</button>
+            </div>
+        </div>
+    </div>
+
     <div style="display: flex; margin-left: 5px; justify-content: center;">
-        <button style="margin-right: 10px;">Delete Account</button>
+        <button onclick="ShowPopUp('accountdelete', 'flex')" style="margin-right: 10px;">Delete Account</button>
         <h1>Permantly delete your account. All subscribtions will stop working.</h1>
     </div>
 
     <footer id="footer">
     </footer>
+    <script src="Scripts/PopUp.js"></script>
     <script src="Scripts/UILoad.js"></script>
     <script src="Scripts/Accounts.js"></script>
 </body>

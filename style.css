@@ -162,3 +162,37 @@ footer{
 input{
     font-size: 20px;
 }
+
+.popup{
+    width: 100vw;
+    height: 100vh;
+    top: 0%;
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    z-index: 1;
+    background-color: rgba(73, 73, 73, 0.774);
+}
+
+.popupmenu{
+    width: 30%;
+    height: 80%;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 5px;
+    border-style:solid;
+    background-color: aliceblue;
+}
+
+.center{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+button:hover{
+    background-color: rgb(211, 211, 211);
+}
