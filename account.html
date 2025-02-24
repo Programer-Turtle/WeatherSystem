@@ -13,29 +13,100 @@
     </div>
     <h1 style="margin-top:120px">Account Settings</h1>
 
+
+    <div id="verifyPhoneNumber" class="popup">
+        <div class="popupmenu">
+            <button onclick="HidePopUp('verifyPhoneNumber')" style="border-radius: 360px; padding-left: 15px; padding-right: 15px; border-color: black; border-style: solid; margin-left: 5px;">X</button>
+            <h1>verify Phone Number</h1>
+            <h1>Phone Number</h1>
+            <div class="center" style="margin-bottom: 20px;">
+                <input id="PhoneNumber" type="tel" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="123-456-7890" maxlength="14">
+            </div>
+            <div style="display: flex; margin-bottom: 50px;">
+                <input type="checkbox" name="TextConsent" id="TextConsent">
+                <label for="TextConsent"><p style="margin: 0%;">You consent to receiving text messages from Weather System for one time use codes. Carrier fees may apply.</p></label>
+            </div>
+            <div style="display: flex; margin-bottom: 50px;">
+                <input type="checkbox" name="StoreConsent" id="StoreConsent">
+                <label for="StoreConsent"><p style="margin: 0%;">You consent to Weather System storing your phone number. This data is only used to message you.</p></label>
+            </div>
+            <p style="color: rgb(255, 71, 71); margin-left: 5px;">Bypassing these check marks through software modification automaticaly means you consent to both terms listed above.</p>
+            <h1 id="AddPhoneError" style="color: red;"></h1>
+            <div class="center">
+                <button onclick="AddPhoneNumberUI()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="DeletePhoneNumber" class="popup">
+        <div class="popupmenu">
+            <button onclick="HidePopUp('DeletePhoneNumber')" style="border-radius: 360px; padding-left: 15px; padding-right: 15px; border-color: black; border-style: solid; margin-left: 5px;">X</button>
+            <h1>Delete Phone Number</h1>
+            <h1>Password</h1>
+            <div class="center" style="margin-bottom: 20px;">
+                <input id="PhoneDeletePassword" type="password">
+            </div>
+            <p style="color: rgb(255, 71, 71); margin-left: 5px;">This is formally removing consent for Weather System to text you.</p>
+            <h1 id="DeletePhoneError" style="color: red;"></h1>
+            <div class="center">
+                <button onclick="DeletePhoneNumberUI()">Confirm</button>
+            </div>
+        </div>
+    </div>
+    
+
     <div id="accountdelete" class="popup">
         <div class="popupmenu">
             <button onclick="HidePopUp('accountdelete')" style="border-radius: 360px; padding-left: 15px; padding-right: 15px; border-color: black; border-style: solid; margin-left: 5px;">X</button>
+            <h1 style="color: red;">Delete Account</h1>
+            <h1>This can not be undone!</h1>
+            <h1>Password</h1>
+            <div class="center">
+                <input id="DeletePassword" type="password">
+            </div>
+            <h1 id="DeleteError" style="color: red;"></h1>
+            <div class="center">
+                <button onclick="DeleteAccountUI()" style="color: red;">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="accountChangePassword" class="popup">
+        <div class="popupmenu">
+            <button onclick="HidePopUp('accountChangePassword')" style="border-radius: 360px; padding-left: 15px; padding-right: 15px; border-color: black; border-style: solid; margin-left: 5px;">X</button>
             <h1>Current Password</h1>
             <div class="center">
-                <input type="password">
+                <input id="CurrentPassword" type="password">
             </div>
             <h1>New Password</h1>
             <div class="center">
-                <input type="password">
+                <input id="NewPassword" type="password">
             </div>
             <h1>Confirm New Password</h1>
             <div class="center">
-                <input type="password">
+                <input id="ConfirmPassword" type="password">
             </div>
+            <h1 id="ChangeError" style="color: red;"></h1>
             <div class="center">
                 <button>Confirm</button>
             </div>
         </div>
     </div>
 
-    <div style="display: flex; margin-left: 5px; justify-content: center;">
-        <button onclick="ShowPopUp('accountdelete', 'flex')" style="margin-right: 10px;">Delete Account</button>
+    <h1 id="PhoneText" style="text-align: start;"></h1>
+    
+    <div style="display: flex; margin-left: 5px; justify-content: left;">
+        <button onclick="ShowPopUp('verifyPhoneNumber', 'flex')" style="margin-right: 10px; margin-left: 0%;">Verify Phone Number</button>
+        <h1>Add a phone number to your account. Only numbers from the United States will work.</h1>
+    </div>
+
+    <div id="HiddenDelete" style="display: none; margin-left: 5px; justify-content: left;">
+        <button onclick="ShowPopUp('DeletePhoneNumber', 'flex')" style="margin-right: 10px; margin-left: 0%;">Delete Phone Number</button>
+        <h1>This will revserse all consent you gave to Weather System to send you text messages.</h1>
+    </div>
+
+    <div style="display: flex; margin-left: 5px; justify-content: left; padding: 0%;">
+        <button onclick="ShowPopUp('accountdelete', 'flex')" style="margin-right: 10px; margin-left: 0%;">Delete Account</button>
         <h1>Permantly delete your account. All subscribtions will stop working.</h1>
     </div>
 
@@ -44,5 +115,6 @@
     <script src="Scripts/PopUp.js"></script>
     <script src="Scripts/UILoad.js"></script>
     <script src="Scripts/Accounts.js"></script>
+    <script src="Scripts/NumberType.js"></script>
 </body>
 </html>

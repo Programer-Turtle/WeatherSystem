@@ -31,7 +31,7 @@ async function Signup(){
         return
     }
 
-    let Response = await fetch('http://localhost:3000/signup', {
+    let Response = await fetch('https://weather.informapi.xyz/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ async function signin() {
         return
     }
 
-    let Response = await fetch('http://localhost:3000/login', {
+    let Response = await fetch('https://weather.informapi.xyz/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ async function autosignin(Username, Password) {
         return
     }
 
-    let Response = await fetch('http://localhost:3000/login', {
+    let Response = await fetch('https://weather.informapi.xyz/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ async function VerifyServer(Username, Token) {
         return
     }
 
-    let Response = await fetch('http://localhost:3000/verify', {
+    let Response = await fetch('https://weather.informapi.xyz/verify', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -145,8 +145,32 @@ async function VerifyServer(Username, Token) {
     }
 }
 
+async function GetPhone() {
+    let Username = localStorage.getItem("Username")
+    let Token = localStorage.getItem("Token")
+    let Response = await fetch('https://weather.informapi.xyz/getphonenumber', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: Username,
+            token: Token
+        })
+    })
+    if(!Response.ok){
+        errorData = await Response.json()
+        ErrorText.innerText = errorData["error"]
+    }
+    else{
+        Data = await Response.json()
+        return Data["number"]
+    }
+}
+
 async function Verify() {
     let AccountButton = document.getElementById("AccountButton")
+    let ServiceButton = document.getElementById("ServiceButton")
     let SigninButton = document.getElementById("SigninButton")
     let SignupButton = document.getElementById("SignupButton")
 
@@ -163,13 +187,126 @@ async function Verify() {
             SigninButton.style.display = "none"
             SignupButton.style.display = "none"
             AccountButton.style.display = "block"
+            ServiceButton.style.display = "block"
+            if(Page == "account.html"){
+                Phone = await GetPhone()
+                if(Phone != null){
+                    FixedPhone = `${Phone.substring(0,2)} (${Phone.substring(2,5)})-${Phone.substring(5,8)}-${Phone.substring(8,12)}`
+                    document.getElementById("PhoneText").innerText = `Phone Number: ${FixedPhone}`
+                    document.getElementById("HiddenDelete").style.display = "flex"
+                }
+            }
         }
     }
     else{
-        if(Page == "account.html"){
+        if(Page == "account.html" || Page == "services.html"){
+            localStorage.clear()
             window.location = "signin.html"
         }
     }
+}
+
+async function DeleteAccount(Username, Password) {
+    let Response = await fetch('https://weather.informapi.xyz/deleteaccount', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: Username,
+            password: Password
+        })
+    })
+    if(!Response.ok){
+        errorData = await Response.json()
+        document.getElementById("DeleteError").innerText = errorData["error"]
+        return false;
+    }
+    else{
+        localStorage.clear()
+        window.location = "index.html"
+    }
+}
+
+async function DeleteAccountUI() {
+    let Username = localStorage.getItem("Username")
+    let Password = document.getElementById("DeletePassword").value
+
+    await DeleteAccount(Username, Password)
+}
+
+async function AddPhoneNumber(Username, Token, Number) {
+    let ErrorText = document.getElementById("AddPhoneError")
+    let Response = await fetch('https://weather.informapi.xyz/setphonenumber', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: Username,
+            token: Token,
+            number:Number
+        })
+    })
+    if(!Response.ok){
+        errorData = await Response.json()
+        ErrorText.innerText = errorData["error"]
+    }
+    else{
+        alert("Your number has been saved! Were unfortunaly unable to confirm your number right now. You will be able to confirm it later.")
+        location.reload()
+    }
+
+}
+
+async function DeletePhoneNumber(Username, Password) {
+    let ErrorText = document.getElementById("DeletePhoneError")
+    let Response = await fetch('https://weather.informapi.xyz/deletephonenumber', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: Username,
+            password: Password
+        })
+    })
+    if(!Response.ok){
+        errorData = await Response.json()
+        ErrorText.innerText = errorData["error"]
+    }
+    else{
+        location.reload()
+    }
+}
+
+async function AddPhoneNumberUI() {
+    let Username = localStorage.getItem("Username")
+    let Token = localStorage.getItem("Token")
+    let ErrorText = document.getElementById("AddPhoneError")
+    let PhoneNumber = `+1${document.getElementById("PhoneNumber").value.replace(/[^\d+]/g, '')}`
+    let TextConsent = document.getElementById("TextConsent").checked
+    let StoreConsent = document.getElementById("StoreConsent").checked
+    ErrorText.innerText = ""
+    
+    if(TextConsent && StoreConsent){
+        if(PhoneNumber != ""){
+            await AddPhoneNumber(Username, Token, PhoneNumber)
+        }
+        else{
+            ErrorText.innerText = "You must enter a phone number."
+        }
+    }
+    else{
+        ErrorText.innerText = "You must consent to both items listed above to continue."
+    }
+}
+
+async function DeletePhoneNumberUI() {
+    let Username = localStorage.getItem("Username")
+    let Password = document.getElementById("PhoneDeletePassword").value
+
+    await DeletePhoneNumber(Username, Password)
 }
 
 Verify()
