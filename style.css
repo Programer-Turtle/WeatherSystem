@@ -186,13 +186,14 @@ input{
 }
 
 .popupmenu{
-    width: 30%;
+    width: 50%;
     height: 80%;
     border-radius: 10px;
     border-color: black;
     border-width: 5px;
     border-style:solid;
     background-color: aliceblue;
+    overflow-y: scroll;
 }
 
 .center{
