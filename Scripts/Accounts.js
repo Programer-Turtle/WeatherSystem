@@ -253,7 +253,7 @@ async function AddPhoneNumber(Username, Token, Number) {
         ErrorText.innerText = errorData["error"]
     }
     else{
-        window.location = "verifynumber.html"
+        window.location = "verifyNumber.html"
     }
 
 }
