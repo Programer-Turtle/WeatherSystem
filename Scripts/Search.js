@@ -34,7 +34,7 @@ function Search(){
 }
 
 async function SetLocation(State, County) {
-    let Response = await fetch('http://localhost:3000/setLocation', {
+    let Response = await fetch('https://weather.informapi.xyz/setLocation', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

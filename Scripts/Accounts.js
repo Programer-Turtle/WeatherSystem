@@ -31,7 +31,7 @@ async function Signup(){
         return
     }
 
-    let Response = await fetch('http://localhost:3000/signup', {
+    let Response = await fetch('https://weather.informapi.xyz/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ async function signin() {
         return
     }
 
-    let Response = await fetch('http://localhost:3000/login', {
+    let Response = await fetch('https://weather.informapi.xyz/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ async function autosignin(Username, Password) {
         return
     }
 
-    let Response = await fetch('http://localhost:3000/login', {
+    let Response = await fetch('https://weather.informapi.xyz/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ async function VerifyServer(Username, Token) {
         return
     }
 
-    let Response = await fetch('http://localhost:3000/verify', {
+    let Response = await fetch('https://weather.informapi.xyz/verify', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -148,7 +148,7 @@ async function VerifyServer(Username, Token) {
 async function GetPhone() {
     let Username = localStorage.getItem("Username")
     let Token = localStorage.getItem("Token")
-    let Response = await fetch('http://localhost:3000/getphonenumber', {
+    let Response = await fetch('https://weather.informapi.xyz/getphonenumber', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -207,7 +207,7 @@ async function Verify() {
 }
 
 async function DeleteAccount(Username, Password) {
-    let Response = await fetch('http://localhost:3000/deleteaccount', {
+    let Response = await fetch('https://weather.informapi.xyz/deleteaccount', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -237,7 +237,7 @@ async function DeleteAccountUI() {
 
 async function AddPhoneNumber(Username, Token, Number) {
     let ErrorText = document.getElementById("AddPhoneError")
-    let Response = await fetch('http://localhost:3000/setphonenumber', {
+    let Response = await fetch('https://weather.informapi.xyz/setphonenumber', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -253,15 +253,14 @@ async function AddPhoneNumber(Username, Token, Number) {
         ErrorText.innerText = errorData["error"]
     }
     else{
-        alert("Your number has been saved! Were unfortunaly unable to confirm your number right now. You will be able to confirm it later.")
-        location.reload()
+        window.location = "verifynumber.html"
     }
 
 }
 
 async function DeletePhoneNumber(Username, Password) {
     let ErrorText = document.getElementById("DeletePhoneError")
-    let Response = await fetch('http://localhost:3000/deletephonenumber', {
+    let Response = await fetch('https://weather.informapi.xyz/deletephonenumber', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -310,7 +309,7 @@ async function DeletePhoneNumberUI() {
 }
 
 async function SetLocation(State, County) {
-    let Response = await fetch('http://localhost:3000/setLocation', {
+    let Response = await fetch('https://weather.informapi.xyz/setLocation', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -328,6 +327,29 @@ async function SetLocation(State, County) {
     }
     else{
         console.log("Good")
+    }
+}
+
+///verifyPhoneNumber
+
+async function VerifyPhone() {
+    let Response = await fetch('https://weather.informapi.xyz/verifyPhoneNumber', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: localStorage.getItem("Username"),
+            token: localStorage.getItem("Token"),
+            code:document.getElementById("VerifyCode").value
+        })
+    })
+    if(!Response.ok){
+        errorData = await Response.json()
+        document.getElementById("ErrorText").innerText = errorData.error
+    }
+    else{
+        window.location = "account.html"
     }
 }
 
