@@ -186,7 +186,7 @@ input{
 }
 
 .popupmenu{
-    width: 50%;
+    width: 80%;
     height: 80%;
     border-radius: 10px;
     border-color: black;
@@ -214,5 +214,17 @@ input[type="checkbox"] {
     padding: 0;
     box-sizing: border-box;
     flex-shrink: 0;
-  }
-  
+}
+
+.box{
+    border-color: black;
+    border-style: solid;
+    max-width: 50%;
+    border-width: 5px;
+    border-radius: 20px;
+}
+
+.right{
+    display: flex;
+    justify-content: right;
+}

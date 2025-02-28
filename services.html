@@ -14,12 +14,24 @@
     <h1 style="margin-top:120px">Services</h1>
     <h2>This is were we offered payed services.</h2>
 
-    
+    <div class="center">
+        <div class="box">
+            <p style="margin-right: 200px; margin-left: 5px;">Wind Caller</p>
+            <p style="margin-left: 5px;">A Service were you recieve weather forecasts and alerts in the form of text messages directly to your phone for $3 a month. Weather System is proud to provide are first service and hope you enjoy it.</p>
+            <div class="right">
+                <button id="Sub" onclick="GetsubscriptionLink()" style="font-size: 20px; margin-right: 5px; margin-bottom: 5px; display: none;">Subscribe</button>
+                <button id="Loc" onclick="window.location = 'setsubscriptionlocation.html'" style="font-size: 20px; margin-right: 5px; margin-bottom: 5px; display: none;">Set Location</button>
+                <button id="Edit" onclick="GoToEditPage()" style="font-size: 20px; margin-right: 5px; margin-bottom: 5px; display: none;">Edit</button>
+                <p id="Notver" style="color: red; display: none;">You must have a verified phone number. Go to account to set this up.</p>
+            </div>
+        </div>
+    </div>
 
     <footer id="footer">
     </footer>
     <script src="Scripts/PopUp.js"></script>
     <script src="Scripts/UILoad.js"></script>
     <script src="Scripts/Accounts.js"></script>
+    <script src="Scripts/subscriptions.js"></script>
 </body>
 </html>

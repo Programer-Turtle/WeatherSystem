@@ -31,7 +31,7 @@ async function Signup(){
         return
     }
 
-    let Response = await fetch('https://weather.informapi.xyz/signup', {
+    let Response = await fetch('http://localhost:3000/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ async function signin() {
         return
     }
 
-    let Response = await fetch('https://weather.informapi.xyz/login', {
+    let Response = await fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ async function autosignin(Username, Password) {
         return
     }
 
-    let Response = await fetch('https://weather.informapi.xyz/login', {
+    let Response = await fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ async function VerifyServer(Username, Token) {
         return
     }
 
-    let Response = await fetch('https://weather.informapi.xyz/verify', {
+    let Response = await fetch('http://localhost:3000/verify', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -148,7 +148,7 @@ async function VerifyServer(Username, Token) {
 async function GetPhone() {
     let Username = localStorage.getItem("Username")
     let Token = localStorage.getItem("Token")
-    let Response = await fetch('https://weather.informapi.xyz/getphonenumber', {
+    let Response = await fetch('http://localhost:3000/getphonenumber', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -207,7 +207,7 @@ async function Verify() {
 }
 
 async function DeleteAccount(Username, Password) {
-    let Response = await fetch('https://weather.informapi.xyz/deleteaccount', {
+    let Response = await fetch('http://localhost:3000/deleteaccount', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -237,7 +237,7 @@ async function DeleteAccountUI() {
 
 async function AddPhoneNumber(Username, Token, Number) {
     let ErrorText = document.getElementById("AddPhoneError")
-    let Response = await fetch('https://weather.informapi.xyz/setphonenumber', {
+    let Response = await fetch('http://localhost:3000/setphonenumber', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -261,7 +261,7 @@ async function AddPhoneNumber(Username, Token, Number) {
 
 async function DeletePhoneNumber(Username, Password) {
     let ErrorText = document.getElementById("DeletePhoneError")
-    let Response = await fetch('https://weather.informapi.xyz/deletephonenumber', {
+    let Response = await fetch('http://localhost:3000/deletephonenumber', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -307,6 +307,28 @@ async function DeletePhoneNumberUI() {
     let Password = document.getElementById("PhoneDeletePassword").value
 
     await DeletePhoneNumber(Username, Password)
+}
+
+async function SetLocation(State, County) {
+    let Response = await fetch('http://localhost:3000/setLocation', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: localStorage.getItem("Username"),
+            token: localStorage.getItem("Token"),
+            state:State,
+            county:County
+        })
+    })
+    if(!Response.ok){
+        errorData = await Response.json()
+        console.log(errorData.error)
+    }
+    else{
+        console.log("Good")
+    }
 }
 
 Verify()

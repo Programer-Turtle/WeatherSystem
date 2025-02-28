@@ -32,3 +32,32 @@ function Search(){
     let County = document.getElementById("CountyDropdown").value
     window.location = `CountyForecast.html?${State},${County}`
 }
+
+async function SetLocation(State, County) {
+    let Response = await fetch('http://localhost:3000/setLocation', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: localStorage.getItem("Username"),
+            token: localStorage.getItem("Token"),
+            state:State,
+            county:County
+        })
+    })
+    if(!Response.ok){
+        errorData = await Response.json()
+        document.getElementById("ErrorText").innerText = errorData.error
+    }
+    else{
+        window.location = "services.html"
+    }
+}
+
+function LocationSearch(){
+    document.getElementById("ErrorText").innerText = ""
+    let State = document.getElementById("StateDropdown").value
+    let County = document.getElementById("CountyDropdown").value
+    SetLocation(State, County)
+}
