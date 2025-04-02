@@ -1,5 +1,5 @@
 async function GetSubscriptions() {
-    let Response = await fetch('https://weather.informapi.xyz/getSubscriptions', {
+    let Response = await fetch('https://api.weathersystem.org/getSubscriptions', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -17,7 +17,7 @@ async function GetSubscriptions() {
 }
 
 async function GetsubscriptionLink(username, token) {
-    let response = await fetch('https://weather.informapi.xyz/create-subscription-session-for-texts', {
+    let response = await fetch('https://api.weathersystem.org/create-subscription-session-for-texts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ async function GetsubscriptionLink(username, token) {
 }
 
 async function GoToEditPage() {
-    let response = await fetch('https://weather.informapi.xyz/edit-subscription-session-for-texts', {
+    let response = await fetch('https://api.weathersystem.org/edit-subscription-session-for-texts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ async function GoToEditPage() {
 }
 
 async function CheckIfConfirmed() {
-  let response = await fetch('https://weather.informapi.xyz/getphonenumberverified', {
+  let response = await fetch('https://api.weathersystem.org/getphonenumberverified', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
