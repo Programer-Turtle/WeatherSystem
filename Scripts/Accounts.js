@@ -237,7 +237,7 @@ async function DeleteAccountUI() {
 
 async function AddPhoneNumber(Username, Token, Number) {
     let ErrorText = document.getElementById("AddPhoneError")
-    let Response = await fetch('https://weather.informapi.xyz/setphonenumber', {
+    let Response = await fetch('https://api.weathersystem.org/setphonenumber', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
